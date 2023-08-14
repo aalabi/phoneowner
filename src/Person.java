@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 
-public class Person {
+public class Person implements Checkable{
     protected String name;
     protected Phone phone;
     public Person(String name){
         this.name = name;
+    }
+
+    @Override
+    public boolean check(){
+        return this.name.isEmpty();
     }
 
     public final String getName() {

@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 
 public class Husband extends Person {
-    private String name;
     private Wife wife;
     private ArrayList<Daughter> daughters;
 
     public Husband(String name, Wife wife){
         super(name);
-        this.name = name;
         this.wife = wife;
         this.daughters = new ArrayList<Daughter>();
     }

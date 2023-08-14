@@ -9,9 +9,11 @@ public class Main {
         Daughter kehinde = new Daughter("Kehinde");
         alabi.addToDaughter(kehinde);
 
-        Phone nokia = new Phone("Nokia C10");
+        Phone nokia = new Phone("");
+        System.out.println(validateObject(()-> nokia.getModel().isEmpty()));
 
         alabi.buyPhone(nokia);
+        System.out.println(alabi);
 
         Phone alabiPhone = alabi.getPhone();
         alabiPhone.setPhonePIN("0000");
@@ -36,15 +38,13 @@ public class Main {
         osasPhone.setPhonePIN("1000");
         osasPhone.makeCall(tinubu, "0200tinubu0nosa", "1001");
 
-        /*
+    }
 
-
-
-        Account Super class (accountNo, accountName)
-          Saving Account (savingRate)
-          Current Account (borrowRate)
-
-
-         */
+    public static String validateObject(Checkable anObject){
+        String status = "valid object";
+        if(anObject.check()){
+            status = "invalid object";
+        }
+        return status;
     }
 }

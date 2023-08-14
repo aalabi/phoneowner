@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Phone extends Object {
+public class Phone {
     private final String model;
     private String phonePIN = null;
     private ArrayList<String> callLog;
@@ -10,6 +10,11 @@ public class Phone extends Object {
         this.model = model;
         callLog = new ArrayList<String>();
     }
+
+    /*@Override
+    public boolean check(){
+        return  !this.model.isEmpty();
+    }*/
 
     public String getModel() {
         return this.model;
