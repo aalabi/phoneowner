@@ -1,50 +1,61 @@
 import java.util.Scanner;
+import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
-        Wife osagbokan = new Wife("Osagbokan");
+        try {
+            Wife remi = new Wife("Remi");
+            Woman<Wife> houseHelp = new Woman<Wife>();
+            houseHelp.setValue(remi);
+            System.out.println(houseHelp);
 
-        Husband alabi = new Husband("Alabi", osagbokan);
+            Daughter iyaloja = new Daughter("iyaloja");
+            Woman<Daughter> maid = new Woman<Daughter>();
+            maid.setValue(iyaloja);
+            System.out.println(maid);
 
-        Daughter kehinde = new Daughter("Kehinde");
-        alabi.addToDaughter(kehinde);
 
-        Phone nokia = new Phone("");
-        System.out.println(validateObject(()-> nokia.getModel().isEmpty()));
+            Wife osagbokan = new Wife("Osagbokan");
 
-        alabi.buyPhone(nokia);
-        System.out.println(alabi);
+            Husband alabi = new Husband("Alabi", osagbokan);
 
-        Phone alabiPhone = alabi.getPhone();
-        alabiPhone.setPhonePIN("0000");
+            Daughter kehinde = new Daughter("Kehinde");
+            alabi.addToDaughter(kehinde);
 
-        alabiPhone.makeCall(alabi,"0100alabi0nalabi", null);
-        alabiPhone.viewCallLog(null);
+            Phone nokia = new Phone("");
 
-        alabiPhone.makeCall(osagbokan, "0100osa0nalabi", null);
-        alabiPhone.viewCallLog(null);
+            alabi.buyPhone(nokia);
+            System.out.println(alabi);
 
-        alabiPhone.makeCall(kehinde, "0100kehinde0nalabi", null);
-        alabiPhone.viewCallLog(null);
+            Phone alabiPhone = alabi.getPhone();
+            alabiPhone.setPhonePIN("0000");
 
-        Staff tinubu = new Staff("tinubu");
-        alabiPhone.makeCall(tinubu, "0100tinub0nalabi", "0000");
+            alabiPhone.makeCall(alabi,"0100alabi0nalabi", null);
+            alabiPhone.viewCallLog(null);
 
-        Son tunde = new Son("tunde");
-        alabiPhone.makeCall(tunde, "0100tunde0nalabi", null);
+            alabiPhone.makeCall(osagbokan, "0100osa0nalabi", null);
+            alabiPhone.viewCallLog(null);
 
-        osagbokan.buyPhone(new Phone("iphone 14 pro max"));
-        Phone osasPhone = osagbokan.getPhone();
-        osasPhone.setPhonePIN("1000");
-        osasPhone.makeCall(tinubu, "0200tinubu0nosa", "1001");
+            alabiPhone.makeCall(kehinde, "0100kehinde0nalabi", null);
+            alabiPhone.viewCallLog(null);
 
-    }
+            Staff tinubu = new Staff("tinubu");
+            alabiPhone.makeCall(tinubu, "0100tinub0nalabi", "0000");
 
-    public static String validateObject(Checkable anObject){
-        String status = "valid object";
-        if(anObject.check()){
-            status = "invalid object";
+            Son tunde = new Son("tunde");
+            alabiPhone.makeCall(tunde, "0100tunde0nalabi", null);
+
+            osagbokan.buyPhone(new Phone("iphone 14 pro max"));
+            Phone osasPhone = osagbokan.getPhone();
+            osasPhone.setPhonePIN("1000");
+            osasPhone.makeCall(tinubu, "0200tinubu0nosa", "1001");
         }
-        return status;
+        catch (PhoneException e){
+            System.out.println(e);
+        }
+        catch (Exception e){
+            System.out.println("System error");
+            e.printStackTrace();
+        }
     }
 }

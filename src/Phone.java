@@ -7,7 +7,9 @@ public class Phone {
     private Person owner;
 
     public Phone(String model){
-        this.model = model;
+        if (!model.isEmpty()) {
+            this.model = model;
+        } else throw new PhoneException("blank phone model");
         callLog = new ArrayList<String>();
     }
 
