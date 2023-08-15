@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Phone {
+public class Phone implements Checkable {
     private final String model;
     private String phonePIN = null;
     private ArrayList<String> callLog;
@@ -8,13 +8,16 @@ public class Phone {
 
     public Phone(String model){
         this.model = model;
+        if(!check()){
+            System.out.println("missing phone model");
+        }
         callLog = new ArrayList<String>();
     }
 
-    /*@Override
+    @Override
     public boolean check(){
-        return  !this.model.isEmpty();
-    }*/
+        return !this.model.isEmpty();
+    }
 
     public String getModel() {
         return this.model;

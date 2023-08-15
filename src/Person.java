@@ -9,7 +9,7 @@ public class Person implements Checkable{
 
     @Override
     public boolean check(){
-        return this.name.isEmpty();
+        return this.name.length() >= 2;
     }
 
     public final String getName() {
