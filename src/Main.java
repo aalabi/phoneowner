@@ -5,12 +5,12 @@ public class Main {
     public static void main(String[] args) {
         try {
             Wife remi = new Wife("Remi");
-            Woman<Wife> houseHelp = new Woman<Wife>();
+            Woman<Wife> houseHelp = new Woman<>();
             houseHelp.setValue(remi);
             System.out.println(houseHelp);
 
             Daughter iyaloja = new Daughter("iyaloja");
-            Woman<Daughter> maid = new Woman<Daughter>();
+            Woman<Daughter> maid = new Woman<>();
             maid.setValue(iyaloja);
             System.out.println(maid);
 
